@@ -1,0 +1,12 @@
+Package: lfst
+Title: Large fst files
+Version: 0.0.0.9000
+Authors@R: person("Edwin", "de Jonge", email = "first.last@example.com", role = c("aut", "cre"))
+Description: Large fst storgae
+Depends: R (>= 3.4.0)
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: yaml, fst
+Suggests: testthat
+RoxygenNote: 6.0.1
