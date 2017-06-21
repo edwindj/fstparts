@@ -1,4 +1,4 @@
-Package: lfst
+Package: fstparts
 Title: Large fst files
 Version: 0.0.0.9000
 Authors@R: person("Edwin", "de Jonge", email = "first.last@example.com", role = c("aut", "cre"))
