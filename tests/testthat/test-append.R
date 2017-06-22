@@ -1,6 +1,6 @@
-context("append")
+context("append_part")
 
-test_that("append works", {
-  l <- lfst(iris, name="append", overwrite = TRUE)
-  l <- append_lfst(l, iris)
+test_that("append_part works", {
+  l <- fstparts(iris, name="append", overwrite = TRUE)
+  l <- append_part(l, iris)
 })

@@ -1,9 +1,9 @@
-# append a data set to the lfst.
-# can be really simple by just saving the fst and updating the index
-# or can be more sophisticated by append to last chunk. 
-
-append_lfst <- function(x, data){
-  if (!inherits(x, "lfst")){
+#' Append data to a fstparts directory
+#' 
+#' 
+#' @export
+append_part <- function(x, data){
+  if (!inherits(x, "fstparts")){
     stop("not a valid lfst object")
   }
   
@@ -23,9 +23,5 @@ append_lfst <- function(x, data){
   
   fst::write.fst(data, file.path(x$dir, part$name))
   
-  write_index(x)
-  # check if data layout is compatible
-  # write to directory
-  # update index in lfst
-  x
+  write_index(x) # should we always write to index, or have a flush mechanism?
 }

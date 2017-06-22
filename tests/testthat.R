@@ -1,4 +1,4 @@
 library(testthat)
-library(lfst)
+library(fstparts)
 
-test_check("lfst")
+test_check("fstparts")
