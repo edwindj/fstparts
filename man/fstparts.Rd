@@ -7,7 +7,7 @@
 \alias{fstparts}
 \title{fstparts}
 \usage{
-fstparts(data, name = deparse(substitute(data)), dir = NULL,
+fstparts(data, dir = NULL, name = deparse(substitute(data)),
   overwrite = FALSE, chunk_size = 10000L, compress = 0)
 }
 \description{

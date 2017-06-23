@@ -3,12 +3,12 @@
 #' @param dat
 #' @export
 fstparts <- function( data
-                , name       = deparse(substitute(data))
-                , dir        = NULL
-                , overwrite  = FALSE
-                , chunk_size = 1e4L
-                , compress   = 0
-                ){
+                    , dir        = NULL
+                    , name       = deparse(substitute(data))
+                    , overwrite  = FALSE
+                    , chunk_size = 1e4L
+                    , compress   = 0
+                    ){
   if (is.null(dir)){
     stop("please specify the dir parameter")
   }
@@ -48,6 +48,10 @@ fstparts <- function( data
   )
   write_index(parts)
   parts
+}
+
+
+create_parts <- function(data, dir, ...){
 }
 
 #' Open a fstparts file
