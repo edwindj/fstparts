@@ -2,7 +2,9 @@
 
 sort_lfst <- function(lfst, keys, inline=TRUE){
   # first sort each fst file using data.table
-  # merge the resulting fst files
+  # using setkey, other option is using "order" but that is slower, but more flexible
+  # merge sort of the results
+  
 }
 
 setkey_parts <- function(parts, cols){
