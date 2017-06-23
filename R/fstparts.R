@@ -1,12 +1,21 @@
 #' fst
+#' 
+#' @param dat
 #' @export
-lfst <- function( data
-                , name       = deparse(substitute(data))
-                , dir        = name
-                , overwrite  = FALSE
-                , chunk_size = 1e4L
-                , compress   = 0
-                ){
+fstparts <- function( data
+                    , dir        = NULL
+                    , name       = deparse(substitute(data))
+                    , overwrite  = FALSE
+                    , chunk_size = 1e4L
+                    , compress   = 0
+                    ){
+  if (is.null(dir)){
+    stop("please specify the dir parameter")
+  }
+  if (is.null(data) && is.character(dir)){
+    return(open_parts(dir))
+  }
+  
   path <- file.path(dir, "part_0001.fst")
   if (dir.exists(dir)){
     if (!overwrite){
@@ -27,7 +36,7 @@ lfst <- function( data
   part <- 
     list(name = basename(path), size = nrow(data))
   
-  lfst <- structure(
+  parts <- structure(
     list( dir        = dir
         , name       = name
         , columns    = columns
@@ -35,26 +44,38 @@ lfst <- function( data
         , chunk_size = chunk_size
         , compress   = compress
         )
-    , class="lfst"
+    , class="fstparts"
   )
-  write_index(lfst)
-  lfst
+  write_index(parts)
+  parts
 }
 
-read_index <- function(dir){
+
+create_parts <- function(data, dir, ...){
+}
+
+#' Open a fstparts file
+#' 
+#' @export
+open_parts <- function(dir){
   path <- file.path(dir, "index.yml")
   index <- yaml::yaml.load_file(path)
   #TODO check structure
   index$dir <- dirname(path)
-  structure(index, class="lfst")
+  structure(index, class="fstparts")
 }
 
-write_index <- function(lfst){
-  index <- lfst
+write_index <- function(parts){
+  index <- parts
   index$dir <- NULL
-  path <- file.path(lfst$dir, "index.yml")
+  path <- file.path(parts$dir, "index.yml")
   writeLines(yaml::as.yaml(index), path)
-  invisible(lfst)
+  invisible(parts)
+}
+
+#' @export
+is.fstparts <- function(x){
+  inherits(x, "fstparts")
 }
 
 #fst::fst.metadata("tests/testthat/iris/iris_0001.fst")

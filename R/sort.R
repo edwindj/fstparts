@@ -1,6 +1,6 @@
 # implement a k-merge sort for multiple fst files
 
-sort_lfst <- function(lfst, keys, inline=TRUE){
+sort_parts <- function(lfst, keys, inline=TRUE){
   # first sort each fst file using data.table
   # using setkey, other option is using "order" but that is slower, but more flexible
   # merge sort of the results
