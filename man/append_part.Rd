@@ -2,10 +2,10 @@
 % Please edit documentation in R/append_part.R
 \name{append_part}
 \alias{append_part}
-\title{Append data to a fst directory}
+\title{Append data to a fstparts directory}
 \usage{
 append_part(x, data)
 }
 \description{
-Append data to a fst directory
+Append data to a fstparts directory
 }

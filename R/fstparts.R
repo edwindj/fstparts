@@ -4,12 +4,14 @@
 #' @export
 fstparts <- function( data
                 , name       = deparse(substitute(data))
-                , dir        = name
+                , dir        = NULL
                 , overwrite  = FALSE
                 , chunk_size = 1e4L
                 , compress   = 0
                 ){
-  
+  if (is.null(dir)){
+    stop("please specify the dir parameter")
+  }
   if (is.null(data) && is.character(dir)){
     return(open_parts(dir))
   }
@@ -48,6 +50,8 @@ fstparts <- function( data
   parts
 }
 
+#' Open a fstparts file
+#' 
 #' @export
 open_parts <- function(dir){
   path <- file.path(dir, "index.yml")

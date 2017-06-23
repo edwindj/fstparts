@@ -13,15 +13,15 @@ read_parts_chunked <- function(x, chunk_size= 1e5L, callback, ...){
   while(length(todo)){
     res <- list()
     size <- chunk_size
-    while(size > 0){
+    while(size > 0 && length(todo)){
       part <- todo[[1]]
       
       if (!is.null(part$skip)){
         skip <- part$skip
       }
-      path <- file.path(parts$dir, part$name)
+      path <- file.path(x$dir, part$name)
       from <- skip + 1
-      to <- min(parts$size, skip + size)
+      to <- min(part$size, skip + size)
       
       res[[length(res) + 1]] <- fst::read.fst(path, from=from, to=to)
       size <- size - (to - skip)
