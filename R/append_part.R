@@ -4,7 +4,7 @@
 #' @export
 append_part <- function(x, data){
   if (!inherits(x, "fstparts")){
-    stop("not a valid lfst object")
+    stop("not a valid fstparts object")
   }
   
   nms <- names(x$columns)

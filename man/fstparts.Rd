@@ -8,7 +8,7 @@
 \title{fstparts}
 \usage{
 fstparts(data, dir = NULL, name = deparse(substitute(data)),
-  overwrite = FALSE, chunk_size = 10000L, compress = 0)
+  overwrite = FALSE, chunksize = 10000L, compress = 0)
 }
 \description{
 Store a large data set in chunks on disk in fst format, and make it easy to import, process and export the results.

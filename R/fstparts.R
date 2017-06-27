@@ -1,13 +1,13 @@
 #' fst
 #' 
-#' @param dat
+#' @param data
 #' @export
 fstparts <- function( data
-                    , dir        = NULL
-                    , name       = deparse(substitute(data))
-                    , overwrite  = FALSE
-                    , chunk_size = 1e4L
-                    , compress   = 0
+                    , dir       = NULL
+                    , name      = deparse(substitute(data))
+                    , overwrite = FALSE
+                    , chunksize = 1e4L
+                    , compress  = 0
                     ){
   if (is.null(dir)){
     stop("please specify the dir parameter")
@@ -41,7 +41,7 @@ fstparts <- function( data
         , name       = name
         , columns    = columns
         , parts      = list(part)
-        , chunk_size = chunk_size
+        , chunksize = chunksize
         , compress   = compress
         )
     , class="fstparts"

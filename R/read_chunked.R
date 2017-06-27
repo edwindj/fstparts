@@ -1,6 +1,6 @@
 #' read the fst parts in chunks
 #' Note that the chunks may have a different size as the parts.
-read_parts_chunked <- function(x, chunk_size= 1e5L, callback, ...){
+read_parts_chunked <- function(x, chunksize= 1e5L, callback, ...){
   # TODO check callback
   if (!is.fstparts(x)){
     stop("x should be a fstparts object", call. = F)
@@ -12,7 +12,7 @@ read_parts_chunked <- function(x, chunk_size= 1e5L, callback, ...){
   
   while(length(todo)){
     res <- list()
-    size <- chunk_size
+    size <- chunksize
     while(size > 0 && length(todo)){
       part <- todo[[1]]
       
@@ -35,4 +35,3 @@ read_parts_chunked <- function(x, chunk_size= 1e5L, callback, ...){
   }
   invisible(cb_result)
 }
-

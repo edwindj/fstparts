@@ -1,4 +1,5 @@
 #' @export
+#' @importFrom utils head
 head.fstparts <- function(x, n=6L, ...){
   part <- x$parts[[1]]
   path <- file.path(x$dir, part$name)

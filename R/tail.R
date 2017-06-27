@@ -1,4 +1,5 @@
 #' @export
+#' @importFrom utils tail
 tail.fstparts <- function(x, n = 6L, ...){
   part <- x$parts[[length(x$parts)]]
   path <- file.path(x$dir, part$name)

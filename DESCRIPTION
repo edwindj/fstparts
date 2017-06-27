@@ -1,10 +1,10 @@
 Package: fstparts
 Title: Large fst files
-Version: 0.0.0.9000
+Version: 0.1.0.9000
 Authors@R: person("Edwin", "de Jonge", email = "edwindjonge@gmail.com", role = c("aut", "cre"))
 Description: Large fst storage
 Depends: R (>= 3.4.0)
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: yaml, fst, data.table

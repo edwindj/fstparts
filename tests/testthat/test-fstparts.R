@@ -21,6 +21,6 @@ test_that("open_parts works",{
   expect_equal(m$columns, l$columns)
   expect_equal(m$parts, l$parts)
   expect_equal(m$dir, l$dir)
-  expect_equal(m$chunk_size, l$chunk_size)
+  expect_equal(m$chunksize, l$chunksize)
   expect_equal(m$compress, l$compress)
 })
