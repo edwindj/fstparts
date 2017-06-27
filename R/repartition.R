@@ -15,7 +15,7 @@ repartition_parts <- function(x, dir, chunksize=1e6, compress=0){
                                            , name      = x$name
                                            , dir       = dir
                                            , compress  = compress
-                                           , chunksize = chunksize
+#                                           , chunksize = chunksize
                                            )
                           } else {
                             res <- append_part(res, dt)
@@ -47,8 +47,8 @@ parts_to_csv <- function(x, path, one_file=TRUE, overwrite = FALSE, ...){
 
 parts_to_csv_dir <- function( x
                             , path
-                            , overwrite=FALSE
-                            , create = TRUE
+                            , overwrite = FALSE
+                            , create    = TRUE
                             , ...
                             ){
   if (!inherits(x, "fstparts")){

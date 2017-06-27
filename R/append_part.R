@@ -1,6 +1,9 @@
 #' Append data to a fstparts directory
-#' 
-#' 
+#'
+#' Apppend data to a fstparts directory
+#' @param x existing fstparts object. 
+#' @param data data.frame with data with same structure as \code{x}.
+#' @return updated fstparts object.
 #' @export
 append_part <- function(x, data){
   if (!inherits(x, "fstparts")){
@@ -17,6 +20,10 @@ append_part <- function(x, data){
   }
   
   N <- length(x$parts) + 1
+  
+  if (N >= 1e4) {
+    stop("currently the maximum number of parts is 1e4. Please repartition with a larger chunksize")
+  }
   
   part <- list(name = sprintf("part_%04i.fst", N), size=nrow(data))
   x$parts[[N]] <- part

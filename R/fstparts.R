@@ -6,7 +6,7 @@ fstparts <- function( data
                     , dir       = NULL
                     , name      = deparse(substitute(data))
                     , overwrite = FALSE
-                    , chunksize = 1e4L
+ #                   , chunksize = 1e4L
                     , compress  = 0
                     ){
   if (is.null(dir)){
@@ -41,8 +41,8 @@ fstparts <- function( data
         , name       = name
         , columns    = columns
         , parts      = list(part)
-        , chunksize = chunksize
-        , compress   = compress
+#        , chunksize = chunksize
+#        , compress   = compress
         )
     , class="fstparts"
   )
