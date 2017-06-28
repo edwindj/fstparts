@@ -6,6 +6,14 @@
 \usage{
 append_part(x, data)
 }
+\arguments{
+\item{x}{existing fstparts object.}
+
+\item{data}{data.frame with data with same structure as \code{x}.}
+}
+\value{
+updated fstparts object.
+}
 \description{
-Append data to a fstparts directory
+Apppend data to a fstparts directory
 }

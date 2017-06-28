@@ -25,7 +25,7 @@ append_part <- function(x, data){
     stop("currently the maximum number of parts is 1e4. Please repartition with a larger chunksize")
   }
   
-  part <- list(name = sprintf("part_%04i.fst", N), size=nrow(data))
+  part <- list(name = sprintf(PARTNAME, x$name, N), size=nrow(data))
   x$parts[[N]] <- part
   
   fst::write.fst(data, file.path(x$dir, part$name))

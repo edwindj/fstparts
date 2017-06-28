@@ -1,6 +1,6 @@
 #' resave the fstparts with specified chunk size and compression
 #' 
-repartition_parts <- function(x, dir, chunksize=1e6, compress=0){
+repartition_parts <- function(x, dir, chunksize=1e6, compress=0, ...){
   if (!is.fstparts(x)){
     stop("x must be a fstparts object")
   }
@@ -15,6 +15,7 @@ repartition_parts <- function(x, dir, chunksize=1e6, compress=0){
                                            , name      = x$name
                                            , dir       = dir
                                            , compress  = compress
+                                           , ...
 #                                           , chunksize = chunksize
                                            )
                           } else {

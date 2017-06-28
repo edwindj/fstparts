@@ -5,7 +5,7 @@
 \title{read the fst parts in chunks
 Note that the chunks may have a different size as the parts.}
 \usage{
-read_parts_chunked(x, chunksize = 100000L, callback, ...)
+read_parts_chunked(x, chunksize = 1000000L, callback, ...)
 }
 \description{
 read the fst parts in chunks

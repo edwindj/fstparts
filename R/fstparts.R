@@ -1,3 +1,5 @@
+PARTNAME <- "%s_%04i.fst"
+
 #' fst
 #' 
 #' @param data
@@ -16,7 +18,7 @@ fstparts <- function( data
     return(open_parts(dir))
   }
   
-  path <- file.path(dir, "part_0001.fst")
+  path <- file.path(dir, sprintf(PARTNAME, name , 1))
   if (dir.exists(dir)){
     if (!overwrite){
       stop("Use overwrite=TRUE", call. = FALSE)
@@ -50,8 +52,15 @@ fstparts <- function( data
   parts
 }
 
-
+#' @export
 create_parts <- function(data, dir, ...){
+  fstparts(data, dir, ...)
+}
+
+#' @export
+dim.fstparts <- function(x){
+  rowsize <- sum(sapply(x$parts, function(part){part$size}))
+  c(rowsize, length(x$columns))
 }
 
 #' Open a fstparts file

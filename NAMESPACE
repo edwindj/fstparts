@@ -3,6 +3,7 @@
 S3method(head,fstparts)
 S3method(tail,fstparts)
 export(append_part)
+export(create_parts)
 export(fstparts)
 export(is.fstparts)
 export(open_parts)
