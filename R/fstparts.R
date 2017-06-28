@@ -59,8 +59,12 @@ create_parts <- function(data, dir, ...){
 #' @export
 open_parts <- function(dir){
   path <- file.path(dir, "index.yml")
+  if (!file.exists(path)){
+    stop("No '", path, "' found.")
+  }
   index <- yaml::yaml.load_file(path)
   #TODO check structure
+  
   index$dir <- dirname(path)
   structure(index, class="fstparts")
 }
