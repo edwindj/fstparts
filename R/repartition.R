@@ -65,6 +65,7 @@ parts_to_csv_dir <- function( x
 }
 
 
-csv_to_parts <- function(path, chunksize = 1e6, compress=0){
+csv_to_parts <- function(path, dir, chunksize = 1e6, compress=0, ...){
+  data.table::fread(input = path, nrows = chunksize, ...)
   stop("Not implemented")
 }

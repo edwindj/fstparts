@@ -10,6 +10,7 @@ fstparts <- function( data
                     , overwrite = FALSE
  #                   , chunksize = 1e4L
                     , compress  = 0
+                    , ...
                     ){
   if (is.null(dir)){
     stop("please specify the dir parameter")
