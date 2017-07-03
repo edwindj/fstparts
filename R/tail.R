@@ -1,6 +1,7 @@
 #' @export
 #' @importFrom utils tail
 tail.fstparts <- function(x, n = 6L, ...){
+  skip("Not working on travis...")
   N <- nrow(x)
   n <- min(n, N)
   
