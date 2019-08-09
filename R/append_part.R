@@ -1,11 +1,12 @@
-#' Append data to a fstparts directory
+#' Append data to a data parts directory
 #'
-#' Apppend data to a fstparts directory
-#' @param x existing fstparts object. 
-#' @param data data.frame with data with same structure as \code{x}.
-#' @return updated fstparts object.
+#' Apppend data to a data parts directory
+#' @param x existing parts object. 
+#' @param data data.frame with data with same structure as `x`.
+#' @return updated parts object.
 #' @export
 append_part <- function(x, data){
+  
   if (!inherits(x, "fstparts")){
     stop("not a valid fstparts object")
   }
@@ -28,7 +29,7 @@ append_part <- function(x, data){
   part <- list(name = sprintf(PARTNAME, x$name, N), size=nrow(data))
   x$parts[[N]] <- part
   
-  fst::write.fst(data, file.path(x$dir, part$name))
+  fst::write.fst(data[, nms], file.path(x$dir, part$name))
   
   write_index(x) # should we always write to index, or have a flush mechanism?
 }

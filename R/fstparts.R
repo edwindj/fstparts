@@ -2,7 +2,11 @@ PARTNAME <- "%s_%04i.fst"
 
 #' fst
 #' 
-#' @param data
+#' @param data data to be added to parts
+#' @param dir directory where to create
+#' @param name name of data file
+#' @param overwrite `logical`: should a previous directory be removed?
+#' @param compress should the data be compressed (passed through to [fst::fst.write()])
 #' @export
 fstparts <- function( data
                     , dir       = NULL
@@ -22,7 +26,7 @@ fstparts <- function( data
   path <- file.path(dir, sprintf(PARTNAME, name , 1))
   if (dir.exists(dir)){
     if (!overwrite){
-      stop("Use overwrite=TRUE", call. = FALSE)
+      stop("Directory '", dir,"' already exists. Use overwrite=TRUE to force saving.", call. = FALSE)
     }
     unlink(dir, recursive = TRUE)
   }
@@ -72,8 +76,8 @@ open_parts <- function(dir){
   if (!file.exists(path)){
     stop("No '", path, "' found.")
   }
+  
   index <- yaml::yaml.load_file(path)
-  #TODO check structure
   
   index$dir <- dirname(path)
   structure(index, class="fstparts")
@@ -89,6 +93,11 @@ write_index <- function(parts){
 
 #' @export
 is.fstparts <- function(x){
+  inherits(x, "fstparts")
+}
+
+#' @export
+is.parts <- function(x){
   inherits(x, "fstparts")
 }
 

@@ -4,14 +4,26 @@
 \name{fstparts}
 \alias{fstparts}
 \alias{fstparts-package}
-\alias{fstparts}
-\title{fstparts}
+\title{fstparts.}
 \usage{
 fstparts(data, dir = NULL, name = deparse(substitute(data)),
-  overwrite = FALSE, compress = 0)
+  overwrite = FALSE, compress = 0, ...)
+}
+\arguments{
+\item{data}{data to be added to parts}
+
+\item{dir}{directory where to create}
+
+\item{name}{name of data file}
+
+\item{overwrite}{\code{logical}: should a previous directory be removed?}
+
+\item{compress}{should the data be compressed (passed through to \code{\link[fst:fst.write]{fst::fst.write()}})}
 }
 \description{
-Store a large data set in chunks on disk in fst format, and make it easy to import, process and export the results.
+Large fst storage
+}
+\author{
+\strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com}
 
-fst
 }

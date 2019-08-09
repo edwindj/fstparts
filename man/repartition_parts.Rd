@@ -4,7 +4,7 @@
 \alias{repartition_parts}
 \title{resave the fstparts with specified chunk size and compression}
 \usage{
-repartition_parts(x, dir, chunksize = 1e+06, compress = 0)
+repartition_parts(x, dir, chunksize = 1e+06, compress = 0, ...)
 }
 \description{
 resave the fstparts with specified chunk size and compression

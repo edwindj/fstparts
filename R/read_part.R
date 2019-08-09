@@ -1,7 +1,7 @@
 #' @export
 read_part <- function(x, n = 1, ...){
   if (!is.fstparts(x)){
-    stop("x must be a fstparts object")
+    stop("x must be a 'fstparts' object")
   }
   if (n > length(x$parts) || n < 1){
     stop("the number of parts is maximally ", length(x$parts))

@@ -2,18 +2,18 @@
 % Please edit documentation in R/append_part.R
 \name{append_part}
 \alias{append_part}
-\title{Append data to a fstparts directory}
+\title{Append data to a data parts directory}
 \usage{
 append_part(x, data)
 }
 \arguments{
-\item{x}{existing fstparts object.}
+\item{x}{existing parts object.}
 
 \item{data}{data.frame with data with same structure as \code{x}.}
 }
 \value{
-updated fstparts object.
+updated parts object.
 }
 \description{
-Apppend data to a fstparts directory
+Apppend data to a data parts directory
 }

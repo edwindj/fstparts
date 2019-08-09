@@ -2,4 +2,4 @@
 #'
 #' @name fstparts
 #' @docType package
-NULL
+"_PACKAGE"
